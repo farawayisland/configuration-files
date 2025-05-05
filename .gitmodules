@@ -1,0 +1,3 @@
+[submodule "Neovim/Config/nvim"]
+	path = Neovim/Config/nvim
+	url = https://github.com/farawayisland/my-kickstart.nvim.git
