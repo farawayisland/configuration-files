@@ -1,0 +1,5 @@
+# ~/.zsh_functions/interactive/pause_and_print_separator
+## Source: https://stackoverflow.com/a/51075278
+## Prompt for a keypress to continue. Customise prompt with $*
+printf >&2 '%s\n================================================================================\n' "${*:-Press any key to continue... }"
+read ans

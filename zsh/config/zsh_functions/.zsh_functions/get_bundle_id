@@ -1,0 +1,5 @@
+# ~/.zsh_functions/get_bundle_id
+## Source: https://stackoverflow.com/a/39464824
+get_bundle_id () {
+	osascript -e "id of app \"$1\""
+}

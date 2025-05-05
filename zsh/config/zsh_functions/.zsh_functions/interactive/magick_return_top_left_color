@@ -1,0 +1,7 @@
+# ~/.zsh_functions/interactive/magick_return_top_left_color
+## Dependencies:
+## Grep | https://formulae.brew.sh/formula/grep
+## ImageMagick | https://formulae.brew.sh/formula/imagemagick
+## Syntax:
+## magick_return_top_left_color <input>
+magick $1 -colorspace rgb -format "%[pixel:p{0,0}]" info: | grep -E '^.*$'

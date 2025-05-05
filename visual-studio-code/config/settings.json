@@ -1,0 +1,120 @@
+{
+	"editor.fontFamily": "'JetBrains Mono Medium', monospace",
+	"editor.fontSize": 18,
+	"editor.tabSize": 4,
+	"editor.minimap.enabled": false,
+	"chat.commandCenter.enabled": false,
+	"json.schemas": [],
+	"workbench.colorTheme": "Catppuccin Mocha",
+	"workbench.iconTheme": "material-icon-theme",
+	"latex-workshop.latex.recipe.default" : "first",
+	"latex-workshop.latex.recipes": [
+	{
+	"name": "lualatex",
+	"tools": [
+		"lualatex",
+		"clean-temporary-files" // optional
+	]
+	},
+	{
+	"name": "lualatex ➞ bibtex ➞ lualatex (2x)",
+	"tools": [
+		"lualatex",
+		"bibtex",
+		"lualatex",
+		"lualatex"
+	]
+	},
+	{
+	"name": "pdflatex",
+	"tools": [
+		"pdflatex",
+        "clean-temporary-files" // optional
+	]
+	},
+	{
+	"name": "xelatex",
+	"tools": [
+		"xelatex",
+        "clean-temporary-files" // optional
+	]
+	},
+	{
+	"name": "pdflatex ➞ bibtex ➞ pdflatex (2x)",
+	"tools": [
+		"pdflatex",
+		"bibtex",
+		"pdflatex",
+		"pdflatex"
+	]
+	},
+	{
+	"name": "xelatex ➞ bibtex ➞ xelatex (2x)",
+	"tools": [
+		"xelatex",
+		"bibtex",
+		"xelatex",
+		"xelatex"
+	]
+	}
+	],
+	"latex-workshop.latex.tools": [
+	{
+		"name": "bibtex",
+		"command": "bibtex",
+		"args": [
+		"%DOCFILE%"
+		],
+		"env": {}
+	},
+	{
+		"name": "clean-temporary-files",
+		"command": "latexmk",
+		"args": ["-c"]
+	},
+	{
+	"name": "lualatex",
+	"command": "latexmk",
+	"args": [
+		"-synctex=1",
+		"-interaction=nonstopmode",
+		"-file-line-error",
+		"-lualatex",
+		"-outdir=%OUTDIR%",
+		"%DOC_EXT%"
+	],
+	"env": {}
+	},
+	{
+	"name": "pdflatex",
+	"command": "latexmk",
+	"args": [
+		"-synctex=1",
+		"-interaction=nonstopmode",
+		"-file-line-error",
+		"-pdflatex",
+		"-outdir=%DIR%",
+		"%DOC_EXT%"
+	],
+	"env": {}
+	},
+	{
+	"name": "xelatex",
+	"command": "latexmk",
+	"args": [
+		"-synctex=1",
+		"-interaction=nonstopmode",
+		"-file-line-error",
+		"-xelatex",
+		"-outdir=%DIR%",
+		"%DOC_EXT%"
+	],
+	"env": {}
+	},
+	],
+	"latex-workshop.view.pdf.external.viewer.command": "sioyek",
+	"editor.stickyScroll.enabled": false,
+	"security.workspace.trust.untrustedFiles": "open",
+	"workbench.settings.applyToAllProfiles": [],
+	
+}

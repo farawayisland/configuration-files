@@ -1,0 +1,5 @@
+# ~/.zsh_functions/find_git_repositories
+## Source: https://stackoverflow.com/a/4319315
+find_git_repositories () {
+	find ~/.config -type d -name .git -print && find ~/'Configuration Files' -type d -name .git -print && find ~/Projects -type d -name .git -print
+}
