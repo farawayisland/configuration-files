@@ -1,0 +1,6 @@
+# ~/.zsh_functions/interactive/pause
+## Source: https://stackoverflow.com/a/51075278
+## Prompt for a keypress to continue. Customise prompt with $*
+printf >&2 '%s' "${*:-Press any key to continue... }"
+read ans
+printf '\n'
