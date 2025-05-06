@@ -48,6 +48,9 @@ alias cpp='cpp-14'
 ## g++ | Homebrew-Installed GNU Compiler Collection's g++
 alias g++='g++-14'
 
+## gbsc | Show current Git branch
+alias gbsc='git branch --show-current'
+
 ## gcc | Homebrew-Installed GNU Compiler Collection's gcc
 alias gcc='gcc-14'
 
@@ -60,6 +63,10 @@ fpath=(~/.zsh_functions/interactive/ $fpath);
 ## clear | Clear screen (redefinition)
 ### Source: https://stackoverflow.com/a/26615036
 autoload -Uz ~/.zsh_functions/interactive/clear
+
+## find_git_repositories | Find Git repositories in ~/.config, ~/'Configuration Files', and ~/Projects
+## Source: https://stackoverflow.com/a/4319315
+autoload -Uz ~/.zsh_functions/interactive/find_git_repositories
 
 ## magick_extent_default | My default ImageMagick extent command
 autoload -Uz ~/.zsh_functions/interactive/magick_extent_default
