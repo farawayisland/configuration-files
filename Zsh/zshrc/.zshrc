@@ -54,6 +54,12 @@ alias gbsc='git branch --show-current'
 ## gcc | Homebrew-Installed GNU Compiler Collection's gcc
 alias gcc='gcc-14'
 
+## gst | Show status of current Git branch
+alias gst='git status'
+
+## gsur | Update Git submodules
+alias gsur='git submodule update --remote --merge'
+
 # Functions in Interactive Shells
 ## For more info fpath and autoload, see
 ## https://stackoverflow.com/a/63661686
