@@ -45,6 +45,9 @@ alias cls='printf "\33c\e[3J"'
 ## cpp | Homebrew-Installed GNU Compiler Collection's cpp
 alias cpp='cpp-14'
 
+## ecxl | Show current values of $COLUMNS and $LINES
+alias ecxl='echo "\$COLUMNS×\$LINES: $COLUMNS×$LINES"'
+
 ## g++ | Homebrew-Installed GNU Compiler Collection's g++
 alias g++='g++-14'
 
@@ -73,6 +76,10 @@ autoload -Uz ~/.zsh_functions/interactive/clear
 ## find_git_repositories | Find Git repositories in ~/.config, ~/'Configuration Files', and ~/Projects
 ## Source: https://stackoverflow.com/a/4319315
 autoload -Uz ~/.zsh_functions/interactive/find_git_repositories
+
+## get_bundle_id | Get bundle ID of macOS application
+### Source: https://stackoverflow.com/a/39464824
+autoload -Uz ~/.zsh_functions/interactive/get_bundle_id
 
 ## magick_extent_default | My default ImageMagick extent command
 autoload -Uz ~/.zsh_functions/interactive/magick_extent_default
