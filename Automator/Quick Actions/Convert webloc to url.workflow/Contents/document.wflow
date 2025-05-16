@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AMApplicationBuild</key>
-	<string>527</string>
+	<string>528</string>
 	<key>AMApplicationVersion</key>
 	<string>2.10</string>
 	<key>AMDocumentVersion</key>
@@ -138,7 +138,7 @@
 ## 
 ## Source: https://discussions.apple.com/thread/253544940
 ##
-## Open Automator, create a Quick Action (must later be saved in "~/Library/Services"), and select the workflow elements "Get Selected Finder Items" and "Run Shell Script" before pasting this script in the latter element with the following configuration:
+## Open Automator, create a Quick Action (must later be saved in "~/Library/Services"), and select the workflow actions "Get Selected Finder Items" and "Run Shell Script" before pasting this script in the latter action with the following configuration:
 ##
 ## - Workflow receives: files or folders
 ## - In: Finder.app
@@ -174,6 +174,7 @@ done
 
 echo "all done."
 
+## Finally, go to System Settings &gt; Keyboard &gt; Keyboard Shortcuts &gt; Services &gt; Files and Folders and assign a keyboard shortcut to your Quick Action workflow.
 ## EOF.</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
@@ -287,7 +288,7 @@ echo "all done."
 				<key>isViewVisible</key>
 				<integer>1</integer>
 				<key>location</key>
-				<string>309.000000:370.000000</string>
+				<string>529.000000:370.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -297,7 +298,7 @@ echo "all done."
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>E024DACA-6EE6-4F88-B9F3-41A116539AC1</key>
+		<key>1ED5A287-D662-4837-8376-6A7439A74B34</key>
 		<dict>
 			<key>from</key>
 			<string>F0B51076-3680-4580-A932-3C535C2127C6 - F0B51076-3680-4580-A932-3C535C2127C6</string>

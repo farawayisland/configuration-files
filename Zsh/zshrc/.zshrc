@@ -30,9 +30,11 @@ source $HOMEBREW_PREFIX/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source $HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Keybindings
-bindkey '\t\t' autosuggest-accept  # tab + tab   | autosuggest
-bindkey '^[[Z' complete-word       # shift + tab | complete
+# Keybindings (kitty)
+bindkey '\t\t' autosuggest-accept   # tab + tab        | autosuggest
+bindkey '^[[Z' complete-word        # shift + tab      | complete
+bindkey '^U' backward-kill-line     # ctrl + u         | kill backwards
+bindkey '^[[117;6u' kill-whole-line # ctrl + shift + u | kill line 
 
 # Aliases
 ## c++ | Homebrew-Installed GNU Compiler Collection's c++

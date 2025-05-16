@@ -12,7 +12,7 @@
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>webloc to url Conversion</string>
+				<string>Convert webloc to url</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>
@@ -23,7 +23,7 @@
 			</dict>
 			<key>NSSendFileTypes</key>
 			<array>
-				<string>com.apple.web-internet-location</string>
+				<string>public.item</string>
 			</array>
 		</dict>
 	</array>
