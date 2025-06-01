@@ -1,3 +1,4 @@
+# ~/.config/kitty/kitty.conf
 # vim:fileencoding=utf-8:foldmethod=marker
 
 # BEGIN_KITTY_THEME
@@ -11,10 +12,12 @@ include current-theme.conf
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-#font_family      family='JetBrainsMono Nerd Font Mono' postscript_name=JetBrainsMonoNFM-SemiBold
-#bold_font        family='JetBrainsMono Nerd Font Mono' postscript_name=JetBrainsMonoNFM-Bold
-#italic_font      auto
-#bold_italic_font family='JetBrainsMono Nerd Font Mono' postscript_name=JetBrainsMonoNFM-BoldItalic
+# BEGIN_KITTY_FONTS
+font_family      family='JetBrainsMono Nerd Font Mono' postscript_name=JetBrainsMonoNFM-SemiBold
+bold_font        family='JetBrainsMono Nerd Font Mono' postscript_name=JetBrainsMonoNFM-Bold
+italic_font      auto
+bold_italic_font family='JetBrainsMono Nerd Font Mono' postscript_name=JetBrainsMonoNFM-BoldItalic
+# END_KITTY_FONTS
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. The easiest way to select fonts is to run the `kitten
@@ -896,9 +899,9 @@ cursor_trail_start_threshold 10
 
 #: Window layout {{{
 
-# remember_window_size  yes
-# initial_window_width  640
-# initial_window_height 400
+remember_window_size  no
+initial_window_width  80c
+initial_window_height 24c
 
 #: If enabled, the OS Window size will be remembered so that new
 #: instances of kitty will have the same size as the previous
@@ -1656,7 +1659,7 @@ allow_remote_control yes
 #: builds do not do update checking. Changing this option by reloading
 #: the config is not supported.
 
-# startup_session none
+startup_session ./startup.conf
 
 #: Path to a session file to use for all kitty instances. Can be
 #: overridden by using the kitty --session =none command line option
@@ -1707,6 +1710,7 @@ allow_remote_control yes
 #: link when clicked.
 
 shell_integration no-cursor
+shell_integration no-title
 
 #: Enable shell integration on supported shells. This enables features
 #: such as jumping to previous prompts, browsing the output of the
@@ -2008,7 +2012,7 @@ shell_integration no-cursor
 #: The full list of actions that can be mapped to key presses is
 #: available here <https://sw.kovidgoyal.net/kitty/actions/>.
 
-kitty_mod cmd
+kitty_mod ctrl+shift
 
 #: Special modifier key alias for default shortcuts. You can change
 #: the value of this option to alter all default shortcuts that use
@@ -2059,12 +2063,12 @@ map f1 launch_tab nvim
 #::  send an interrupt otherwise. Similarly,
 #::  copy_and_clear_or_interrupt will copy and clear the selection or
 #::  send an interrupt if there is no selection.
-map cmd+c copy_and_clear_or_interrupt
+map ctrl+c copy_and_clear_or_interrupt
 
 #: Paste from clipboard
 
 # map kitty_mod+v paste_from_clipboard
-map cmd+v paste_from_clipboard
+map ctrl+v paste_from_clipboard
 
 #: Paste from selection
 
@@ -2226,7 +2230,7 @@ map kitty_mod+h show_scrollback
 
 #: Close window
 
-# map kitty_mod+w close_window
+map kitty_mod+w close_window
 # map shift+cmd+d close_window
 
 #: Next window
@@ -2370,8 +2374,16 @@ map kitty_mod+h show_scrollback
 #: tab and any number less than the number of previously used tabs in
 #: the history goes to the oldest previously used tab in the history::
 
-#:     map ctrl+alt+1 goto_tab 1
-#:     map ctrl+alt+2 goto_tab 2
+map ctrl+alt+1 goto_tab 1
+map ctrl+alt+2 goto_tab 2
+map ctrl+alt+3 goto_tab 3
+map ctrl+alt+4 goto_tab 4
+map ctrl+alt+5 goto_tab 5 
+map ctrl+alt+6 goto_tab 6
+map ctrl+alt+7 goto_tab 7
+map ctrl+alt+8 goto_tab 8
+map ctrl+alt+9 goto_tab 9
+map ctrl+alt+0 goto_tab 10
 
 #: Just as with new_window above, you can also pass the name of
 #: arbitrary commands to run when using new_tab and new_tab_with_cwd.
