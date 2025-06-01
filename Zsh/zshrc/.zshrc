@@ -63,17 +63,71 @@ alias ecxl='echo "\$COLUMNS×\$LINES: $COLUMNS×$LINES"'
 ## g++ | Homebrew-Installed GNU Compiler Collection's g++
 alias g++='g++-14'
 
+## gadd | Add file contents to current Git index
+alias gadd='git add'
+
 ## gbsc | Show current Git branch
 alias gbsc='git branch --show-current'
+
+## gcam | Amend last Git commit's message
+alias gcam='git commit --amend -m'
 
 ## gcc | Homebrew-Installed GNU Compiler Collection's gcc
 alias gcc='gcc-14'
 
+## gchp | Apply the changes introduced by some existing Git commits
+alias gchp='git cherry-pick'
+
+## gclo | Clone a Git repository into a new directory
+alias gclo='git clone'
+
+## gcom | Record changes to current Git branch
+alias gcom='git commit -m'
+
+## gdhh | Show changes between last two Git commits
+alias gdhh='git diff HEAD^ HEAD'
+
+## gdiff | Show changes between Git commits, commit and working tree, et cetera
+alias gdiff='git diff'
+
+## gpom | Push to main branch of origin remote Git repository
+alias gpom='git push origin main'
+
+## gpull | Fetch from and integrate with another Git repository or local Git branch
+alias gpull='git pull'
+
+## gpush | Update refs of remote Git repository along with associated objects
+alias gpush='git push'
+
+## gres | Reset current Git HEAD to the specified state
+alias gres='git reset'
+
+## grfl | Manage Git reflog information
+alias grfl='git reflog'
+
+## grm | Remove files from current Git working tree and index
+alias grm='git rm'
+
+## grph | Return shortened hash of current Git commit
+alias grph='git rev-parse --short HEAD'
+
+## gsadd | Add submodule file contents to current Git index
+alias gsadd='git submodule add'
+
 ## gst | Show status of current Git branch
 alias gst='git status'
 
-## gsur | Update Git submodules
+## gsub | Initialize, update, or inspect Git submodules
+alias gsub='git submodule'
+
+## gsur | Update submodules in current Git branch
 alias gsur='git submodule update --remote --merge'
+
+## gsw | Switch Git branches
+alias gsw='git switch'
+
+## gswm | Switch to main Git branch
+alias gswm='git switch main'
 
 ## java8 | Homebrew-Installed Java 8 (Zulu)
 alias java8='unset JAVA_HOME; export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home; java -version'
