@@ -1,0 +1,8 @@
+# ~/.zsh_functions/git_squash
+## Source: https://stackoverflow.com/a/5201642/19821277
+## Syntax:
+## git_squash <nth_last_commit> <commit_message>
+git_squash () {
+	git reset --soft HEAD~$1
+	git commit -m "\"$2\""
+}

@@ -5,6 +5,10 @@ export EDITOR=nvim
 # HOMEBREW_FORCE_BREWED_CURL
 export HOMEBREW_FORCE_BREWED_CURL=1
 
+# MANPAGER, MANWIDTH
+export MANPAGER="nvim --cmd 'set laststatus=0 ' +'set statuscolumn= nowrap laststatus=0' +Man\!"
+export MANWIDTH=999
+
 # PATH
 path=("$HOME/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home/bin" $path)
 path=("$HOMEBREW_PREFIX/bin" $path)
@@ -41,11 +45,14 @@ bindkey '^[[Z' complete-word        # shift + tab      | complete
 bindkey '^U' backward-kill-line     # ctrl + u         | kill backwards
 
 # Aliases
-## bcb | Creete Brewfile
+## bcb | Create Brewfile
 alias bcb="sh $HOME/'Projects/Programming/Scripts/Zsh/Homebrew/Create Brewfile.command'"
 
 ## bcv | Check Versions of Installed-On-Request Homebrew Formulae, Casks, and MAS Applications
 alias bcv="sh $HOME/'Projects/Programming/Scripts/Zsh/Homebrew/Check Versions of Installed-On-Request Formulae, Casks, and MAS Applications.command'"
+
+## bruu | Update Homebrew, and upgrade Homebrew formulae and casks
+alias bruu="brew update && brew upgrade"
 
 ## c++ | Homebrew-Installed GNU Compiler Collection's c++
 alias c++='c++-14'
@@ -57,6 +64,13 @@ alias cls='printf "\33c\e[3J"'
 ## cpp | Homebrew-Installed GNU Compiler Collection's cpp
 alias cpp='cpp-14'
 
+## diffcu | GNU diff with additions colored green and removals colored red
+alias diffcu='diff --color -u'
+
+## gdiff | Show changes between Git commits, commit and working tree, et cetera
+alias gdiff='git diff'
+
+## glog | Show Git commit logs
 ## ecxl | Show current values of $COLUMNS and $LINES
 alias ecxl='echo "\$COLUMNS×\$LINES: $COLUMNS×$LINES"'
 
@@ -90,8 +104,20 @@ alias gdhh='git diff HEAD^ HEAD'
 ## gdiff | Show changes between Git commits, commit and working tree, et cetera
 alias gdiff='git diff'
 
-## gpom | Push to main branch of origin remote Git repository
-alias gpom='git push origin main'
+## gdifft | Show changes using common diff tools
+alias gdifft='git difftool'
+
+## glog | Show Git commit logs
+alias glog='git log'
+
+## gplom | Pull from main branch of origin remote Git repository
+alias gplom='git pull origin main'
+
+## gmerg | Join two or more Git development histories together
+alias gmerg='git merge'
+
+## gpsom | Push to main branch of origin remote Git repository
+alias gpsom='git push origin main'
 
 ## gpull | Fetch from and integrate with another Git repository or local Git branch
 alias gpull='git pull'
@@ -101,6 +127,9 @@ alias gpush='git push'
 
 ## gres | Reset current Git HEAD to the specified state
 alias gres='git reset'
+
+## grbi | Reapply Git commits on top of another base tip
+alias grbi='git rebase -i'
 
 ## grfl | Manage Git reflog information
 alias grfl='git reflog'
@@ -113,6 +142,12 @@ alias grph='git rev-parse --short HEAD'
 
 ## gsadd | Add submodule file contents to current Git index
 alias gsadd='git submodule add'
+
+## gsq | Squash last N Git commits
+alias gsq='git_squash'
+
+## gsres | Reset submodules in current Git branch
+alias gsres='git submodule deinit -f . && git submodule update --init'
 
 ## gst | Show status of current Git branch
 alias gst='git status'
@@ -129,6 +164,9 @@ alias gsw='git switch'
 ## gswm | Switch to main Git branch
 alias gswm='git switch main'
 
+## guisw | Ignore a previously Git-tracked file from the index 
+alias guisw='git update-index --skip-worktree'
+
 ## java8 | Homebrew-Installed Java 8 (Zulu)
 alias java8='unset JAVA_HOME; export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-8.jdk/Contents/Home; java -version'
 
@@ -137,6 +175,15 @@ alias java17='unset JAVA_HOME; export JAVA_HOME=/Library/Java/JavaVirtualMachine
 
 ## java21 | Homebrew-Installed Java 21 (Temurin)
 alias java21='unset JAVA_HOME; export JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home; java -version'
+
+## nvd | Run Neovim in diff mode
+alias nvd='nvim -d'
+
+## nvimdiff | Run Neovim in diff mode
+alias nvimdiff='nvim -d'
+
+## nvti | Run Neovim in terminal mode
+alias nvti='nvim -c :terminal -c startinsert'
 
 # Functions in Interactive Shells
 ## For more info fpath and autoload, see
@@ -148,6 +195,10 @@ fpath=($HOME/.zsh_functions/interactive/ $fpath);
 ### Source: https://stackoverflow.com/a/26615036
 autoload -Uz $HOME/.zsh_functions/interactive/clear
 
+## copy_bundle_id | Copy bundle ID of macOS application
+### Source: https://stackoverflow.com/a/39464824
+autoload -Uz $HOME/.zsh_functions/interactive/copy_bundle_id
+
 ## exiftool_show_duration | Recursively show duration of audio and video files with ExifTool
 autoload -Uz $HOME/.zsh_functions/interactive/exiftool_show_duration
 
@@ -158,6 +209,10 @@ autoload -Uz $HOME/.zsh_functions/interactive/find_git_repositories
 ## get_bundle_id | Get bundle ID of macOS application
 ### Source: https://stackoverflow.com/a/39464824
 autoload -Uz $HOME/.zsh_functions/interactive/get_bundle_id
+
+## git_squash | Squash last N Git commits
+### Source: https://stackoverflow.com/a/5201642/19821277
+autoload -Uz $HOME/.zsh_functions/interactive/git_squash
 
 ## magick_extent_default | My default ImageMagick extent command
 autoload -Uz $HOME/.zsh_functions/interactive/magick_extent_default
