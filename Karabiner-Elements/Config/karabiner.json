@@ -4,7 +4,142 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, VS Code | Map left_option+shift+h to shift+left_arrow (tap) and to left_option+shift+left_arrow (hold)",
+                        "description": "All Applications Except kitty, Neovide | right_shift+right_command → fn+f11",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.neovide\\.neovide$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": { "mandatory": ["right_shift"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [
+                                        {
+                                            "halt": true,
+                                            "key_code": "f11",
+                                            "modifiers": ["fn"],
+                                            "repeat": false
+                                        }
+                                    ]
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "f11",
+                                        "modifiers": ["fn"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "f11",
+                                        "modifiers": ["fn"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "All Applications Except kitty, Neovide | right_shift+right_option → fn+f12",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.neovide\\.neovide$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_option",
+                                    "modifiers": { "mandatory": ["right_shift"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [
+                                        {
+                                            "halt": true,
+                                            "key_code": "f12",
+                                            "modifiers": ["fn"],
+                                            "repeat": false
+                                        }
+                                    ]
+                                },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "f12",
+                                        "modifiers": ["fn"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "f12",
+                                        "modifiers": ["fn"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "All Applications Except kitty, Neovide | right_shift+left_shift → escape",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.neovide\\.neovide$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "left_shift",
+                                    "modifiers": { "mandatory": ["right_shift"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "escape" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "to_if_held_down": [{ "key_code": "escape" }],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, kitty, Music, System Settings, VS Code | left_option+h → left_arrow (tap) and left_option+left_arrow (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -14,6 +149,96 @@
                                             "^com\\.apple\\.finder$",
                                             "^org\\.mozilla\\.firefox$",
                                             "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.apple\\.Music$",
+                                            "^com\\.apple\\.systempreferences$",
+                                            "^com\\.microsoft\\.VSCode$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "h",
+                                    "modifiers": { "mandatory": ["left_option"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "left_arrow" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "left_arrow"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, kitty, Music, System Settings, VS Code | left_option+l → right_arrow (tap) and left_option+right_arrow (hold)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.coteditor\\.CotEditor$",
+                                            "^com\\.apple\\.finder$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
+                                            "^net\\.kovidgoyal\\.kitty$",
+                                            "^com\\.apple\\.Music$",
+                                            "^com\\.apple\\.systempreferences$",
+                                            "^com\\.microsoft\\.VSCode$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "l",
+                                    "modifiers": { "mandatory": ["left_option"] }
+                                },
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                },
+                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "right_arrow" }] },
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "right_arrow"
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "key_code": "right_arrow",
+                                        "modifiers": ["left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, Music, System Settings, VS Code | left_option+shift+h → shift+left_arrow (tap) and left_option+shift+left_arrow (hold)",
+                        "manipulators": [
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.coteditor\\.CotEditor$",
+                                            "^com\\.apple\\.finder$",
+                                            "^org\\.mozilla\\.firefox$",
+                                            "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
+                                            "^com\\.apple\\.Music$",
+                                            "^com\\.apple\\.systempreferences$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_if"
@@ -53,7 +278,7 @@
                         ]
                     },
                     {
-                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, VS Code | Map left_option+j to down_arrow (tap) and to page_down (hold)",
+                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, Music, System Settings, VS Code | left_option+j → down_arrow (tap) and page_down (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -63,6 +288,8 @@
                                             "^com\\.apple\\.finder$",
                                             "^org\\.mozilla\\.firefox$",
                                             "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
+                                            "^com\\.apple\\.Music$",
+                                            "^com\\.apple\\.systempreferences$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_if"
@@ -89,7 +316,7 @@
                         ]
                     },
                     {
-                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, VS Code | Map left_option+shift+j to shift+down_arrow (tap) and to left_option+shift+down_arrow (hold)",
+                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, Music, System Settings, VS Code | left_option+shift+j → shift+down_arrow (tap) and left_option+shift+down_arrow (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -99,6 +326,8 @@
                                             "^com\\.apple\\.finder$",
                                             "^org\\.mozilla\\.firefox$",
                                             "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
+                                            "^com\\.apple\\.Music$",
+                                            "^com\\.apple\\.systempreferences$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_if"
@@ -138,7 +367,7 @@
                         ]
                     },
                     {
-                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, VS Code | Map left_option+k to up_arrow (tap) and to page_up (hold)",
+                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, Music, System Settings, VS Code | left_option+k → up_arrow (tap) and page_up (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -148,6 +377,8 @@
                                             "^com\\.apple\\.finder$",
                                             "^org\\.mozilla\\.firefox$",
                                             "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
+                                            "^com\\.apple\\.Music$",
+                                            "^com\\.apple\\.systempreferences$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_if"
@@ -174,7 +405,7 @@
                         ]
                     },
                     {
-                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, VS Code | Map left_option+shift+k to shift+up_arrow (tap) and to left_option+shift+up_arrow (hold)",
+                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, Music, System Settings, VS Code | left_option+shift+k → shift+up_arrow (tap) and left_option+shift+up_arrow (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -184,6 +415,8 @@
                                             "^com\\.apple\\.finder$",
                                             "^org\\.mozilla\\.firefox$",
                                             "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
+                                            "^com\\.apple\\.Music$",
+                                            "^com\\.apple\\.systempreferences$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_if"
@@ -223,7 +456,7 @@
                         ]
                     },
                     {
-                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, VS Code | Map left_option+shift+l to shift+right_arrow (tap) and to left_option+shift+right_arrow (hold)",
+                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, Music, System Settings, VS Code | left_option+shift+l → shift+right_arrow (tap) and left_option+shift+right_arrow (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -233,6 +466,8 @@
                                             "^com\\.apple\\.finder$",
                                             "^org\\.mozilla\\.firefox$",
                                             "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
+                                            "^com\\.apple\\.Music$",
+                                            "^com\\.apple\\.systempreferences$",
                                             "^com\\.microsoft\\.VSCode$"
                                         ],
                                         "type": "frontmost_application_if"
@@ -272,41 +507,49 @@
                         ]
                     },
                     {
-                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, kitty, VS Code | Map left_option+h to left_arrow (tap) and to left_option+left_arrow (hold)",
+                        "description": "Firefox | fn+f → left_command+left_control+f",
                         "manipulators": [
                             {
                                 "conditions": [
                                     {
                                         "bundle_identifiers": [
-                                            "^com\\.coteditor\\.CotEditor$",
-                                            "^com\\.apple\\.finder$",
-                                            "^org\\.mozilla\\.firefox$",
-                                            "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^com\\.microsoft\\.VSCode$"
+                                            "^org\\.mozilla\\.firefox$"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "h",
-                                    "modifiers": { "mandatory": ["left_option"] }
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["fn"] }
                                 },
                                 "parameters": {
                                     "basic.to_delayed_action_delay_milliseconds": 150,
                                     "basic.to_if_held_down_threshold_milliseconds": 150
                                 },
-                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "left_arrow" }] },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [
+                                        {
+                                            "halt": true,
+                                            "key_code": "f",
+                                            "modifiers": ["left_command", "left_control"],
+                                            "repeat": false
+                                        }
+                                    ]
+                                },
                                 "to_if_alone": [
                                     {
                                         "halt": true,
-                                        "key_code": "left_arrow"
+                                        "key_code": "f",
+                                        "modifiers": ["left_command", "left_control"],
+                                        "repeat": false
                                     }
                                 ],
                                 "to_if_held_down": [
                                     {
-                                        "key_code": "left_arrow",
-                                        "modifiers": ["left_option"]
+                                        "halt": true,
+                                        "key_code": "f",
+                                        "modifiers": ["left_command", "left_control"],
+                                        "repeat": false
                                     }
                                 ],
                                 "type": "basic"
@@ -314,49 +557,7 @@
                         ]
                     },
                     {
-                        "description": "CotEditor, Finder, Firefox, Karabiner-Elements, kitty, VS Code | Map left_option+l to right_arrow (tap) and to left_option+right_arrow (hold)",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.coteditor\\.CotEditor$",
-                                            "^com\\.apple\\.finder$",
-                                            "^org\\.mozilla\\.firefox$",
-                                            "^org\\.pqrs\\.Karabiner-Elements\\.Settings$",
-                                            "^net\\.kovidgoyal\\.kitty$",
-                                            "^com\\.microsoft\\.VSCode$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": { "mandatory": ["left_option"] }
-                                },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 150,
-                                    "basic.to_if_held_down_threshold_milliseconds": 150
-                                },
-                                "to_delayed_action": { "to_if_canceled": [{ "key_code": "right_arrow" }] },
-                                "to_if_alone": [
-                                    {
-                                        "halt": true,
-                                        "key_code": "right_arrow"
-                                    }
-                                ],
-                                "to_if_held_down": [
-                                    {
-                                        "key_code": "right_arrow",
-                                        "modifiers": ["left_option"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Firefox | Map left_command+m to left_control+m",
+                        "description": "Firefox | left_command+m → left_control+m",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -371,10 +572,34 @@
                                     "key_code": "m",
                                     "modifiers": { "mandatory": ["left_command"] }
                                 },
-                                "to": [
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 150,
+                                    "basic.to_if_held_down_threshold_milliseconds": 150
+                                },
+                                "to_delayed_action": {
+                                    "to_if_canceled": [
+                                        {
+                                            "halt": true,
+                                            "key_code": "m",
+                                            "modifiers": ["left_control"],
+                                            "repeat": false
+                                        }
+                                    ]
+                                },
+                                "to_if_alone": [
                                     {
+                                        "halt": true,
                                         "key_code": "m",
-                                        "modifiers": ["left_control"]
+                                        "modifiers": ["left_control"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "to_if_held_down": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "m",
+                                        "modifiers": ["left_control"],
+                                        "repeat": false
                                     }
                                 ],
                                 "type": "basic"
@@ -382,7 +607,7 @@
                         ]
                     },
                     {
-                        "description": "foobar2000 | Map left_arrow to rewind",
+                        "description": "foobar2000 | left_arrow → rewind",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -400,7 +625,7 @@
                         ]
                     },
                     {
-                        "description": "foobar2000 | Map right_arrow to fastforward",
+                        "description": "foobar2000 | right_arrow → fastforward",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -418,7 +643,7 @@
                         ]
                     },
                     {
-                        "description": "foobar2000 | Map spacebar to play_or_pause",
+                        "description": "foobar2000 | spacebar → play_or_pause",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -436,7 +661,7 @@
                         ]
                     },
                     {
-                        "description": "kitty | Map left_control+comma to left_command+comma",
+                        "description": "kitty | left_control+comma → left_command+comma",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -462,7 +687,7 @@
                         ]
                     },
                     {
-                        "description": "kitty | Map left_control+q to left_command+q",
+                        "description": "kitty | left_control+q → left_command+q",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -488,7 +713,7 @@
                         ]
                     },
                     {
-                        "description": "kitty | Map left_option+j to down_arrow (tap) and to left_control+n (hold)",
+                        "description": "kitty | left_option+j → down_arrow (tap) and left_control+n (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -525,7 +750,7 @@
                         ]
                     },
                     {
-                        "description": "kitty | Map left_option+k to up_arrow (tap) and to left_control+p (hold)",
+                        "description": "kitty | left_option+k → up_arrow (tap) and left_control+p (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -562,7 +787,7 @@
                         ]
                     },
                     {
-                        "description": "kitty, Neovide | Map caps_lock to escape (tap) and to left_control (hold)",
+                        "description": "kitty, Neovide | caps_lock → escape (tap) and left_control (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -595,7 +820,7 @@
                         ]
                     },
                     {
-                        "description": "kitty, Neovide | Map left_command to escape (tap) and to left_control (hold)",
+                        "description": "kitty, Neovide | left_command → escape (tap) and left_control (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -628,7 +853,7 @@
                         ]
                     },
                     {
-                        "description": "kitty, Neovide | Map left_control to escape (tap) and to left_control (hold)",
+                        "description": "kitty, Neovide | left_control → escape (tap) and left_control (hold)",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -661,7 +886,7 @@
                         ]
                     },
                     {
-                        "description": "kitty, Neovide | Map left_control+tab to left_command+tab",
+                        "description": "kitty, Neovide | left_control+tab → left_command+tab",
                         "manipulators": [
                             {
                                 "conditions": [
