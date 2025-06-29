@@ -8,11 +8,11 @@
 			<key>NSBackgroundColorName</key>
 			<string>background</string>
 			<key>NSIconName</key>
-			<string>NSTouchBarCompose</string>
+			<string>NSTouchBarDocuments</string>
 			<key>NSMenuItem</key>
 			<dict>
 				<key>default</key>
-				<string>Open in Neovim Inside Kitty</string>
+				<string>Open in Adobe Acrobat Pro</string>
 			</dict>
 			<key>NSMessage</key>
 			<string>runWorkflowAsService</string>
