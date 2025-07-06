@@ -53,13 +53,13 @@ bindkey '^U' backward-kill-line     # ctrl + u         | kill backwards
 
 # Aliases
 ## bcb | Create Brewfile
-alias bcb="sh $HOME/'Projects/Programming/Scripts/Zsh/Homebrew/Create Brewfile.command'"
+alias bcb="sh $HOME/'Projects/Programming/Scripts/zsh/package-management/homebrew/create-brewfile.command'"
 
-## bcv | Check Versions of Installed-On-Request Homebrew Formulae, Casks, and MAS Applications
-alias bcv="sh $HOME/'Projects/Programming/Scripts/Zsh/Homebrew/Check Versions of Installed-On-Request Formulae, Casks, and MAS Applications.command'"
+## bcv | Check versions of Homebrew, installed-on-request Homebrew formulae and casks, and Mac App Store applications
+alias bcv="sh $HOME/'Projects/Programming/Scripts/zsh/package-management/homebrew/check-versions.command'"
 
-## bruu | Update Homebrew, and upgrade Homebrew formulae and casks
-alias bruu='brew update && brew upgrade'
+## bruu | Update Homebrew, upgrade Homebrew formulae and casks, and upgrade Mac App Store applications
+alias bruu='brew update && brew upgrade && mas upgrade'
 
 ## c++ | Homebrew-Installed GNU Compiler Collection's c++
 alias c++='c++-14'
@@ -76,9 +76,6 @@ alias cpp='cpp-14'
 
 ## diffcu | GNU diff with additions colored green and removals colored red
 alias diffcu='diff --color -u'
-
-## gdiff | Show changes between Git commits, commit and working tree, et cetera
-alias gdiff='git diff'
 
 ## ecxl | Show current values of $COLUMNS and $LINES
 alias ecxl='echo "\$COLUMNS×\$LINES: $COLUMNS×$LINES"'
@@ -119,14 +116,29 @@ alias gdiff='git diff'
 ## gdifft | Show changes using common diff tools
 alias gdifft='git difftool'
 
+## gfetch | Download objects and refs from another Git repository
+alias gfetch='git fetch'
+
 ## glog | Show Git commit logs
 alias glog='git log'
+
+## gls | List tracked files in current directory of current Git branch
+alias gls='ls --group-directories-first --color=auto -d $(git ls-tree --name-only HEAD)'
+
+## glsf | List tracked files in root of current Git branch
+alias glsf='ls --group-directories-first --color=auto -d $(git ls-tree --full-tree --name-only HEAD)'
+
+## glsfr | List tracked files in root of current Git branch recursively
+alias glsfr='ls --color=auto -d $(git ls-tree --full-tree --name-only -rt HEAD)'
+
+## glsr | List tracked files in current directory of current Git branch recursively
+alias glsr='ls --color=auto -d $(git ls-tree --name-only -rt HEAD)'
 
 ## gplom | Pull from main branch of origin remote Git repository
 alias gplom='git pull origin main'
 
-## gmerg | Join two or more Git development histories together
-alias gmerg='git merge'
+## gmerge | Join two or more Git development histories together
+alias gmerge='git merge'
 
 ## gpsom | Push to main branch of origin remote Git repository
 alias gpsom='git push origin main'
@@ -176,7 +188,7 @@ alias gsw='git switch'
 ## gswm | Switch to main Git branch
 alias gswm='git switch main'
 
-## guisw | Ignore a previously Git-tracked file from the index 
+## guisw | Ignore a previously Git-tracked file from the index
 alias guisw='git update-index --skip-worktree'
 
 ## java8 | Homebrew-Installed Java 8 (Zulu)
@@ -221,8 +233,8 @@ alias nvd='nvim -d'
 ## nvimdiff | Run Neovim in diff mode
 alias nvimdiff='nvim -d'
 
-## nvti | Run Neovim in terminal mode
-alias nvti='nvim -c :terminal -c startinsert'
+## nvti | Run Neovim session associated with current directory, enter terminal mode, and silently search backward for branch returned by 'git status'
+alias nvti='nvim -c "lua require('\''persistence'\'').load()" -c terminal -c startinsert -c "silent! ?\v(^On branch )@<=(.{-})($)@=" -c nohlsearch'
 
 ## refresh | Refresh Finder
 alias refresh="osascript -e 'tell application \"Finder\" to tell front window to update every item'"
